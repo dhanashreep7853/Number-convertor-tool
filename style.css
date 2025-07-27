@@ -1,0 +1,245 @@
+/* -- BODY -- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  height: 100vh;
+  overflow: hidden;  /*  Prevent page scrolling */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -- WRAPPER AND CARD -- */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  max-height: 98vh;   /* Limit card height */
+  overflow-y: auto; /*  Internal scroll if needed */
+  width: 100%;
+  text-align: center;
+}
+
+/* -- HEADER -- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 5px;
+  gap: 20px;
+}
+
+/* -- MODULE TITLE & NOTES BUTTON -- */
+.module-name {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 10px 10px;
+  max-width: 220px;
+  border-radius: 20px;
+  white-space: nowrap;
+  color: white;
+  font-weight: 600;
+}
+
+.notes {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 10px 10px;
+  max-width: 220px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.notes:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* -- MAIN HEADING -- */
+h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* -- SELECTORS SECTION -- */
+.selectors {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* -- INPUT -- */
+input {
+  width: 85%;
+  padding: 12px;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+/* -- BUTTON (Convert) -- */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* -- OUTPUT -- */
+.output {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: 600;
+  word-wrap:break-word;
+  color: #333;
+}
+
+/* -- FOOTER (Your Name) -- */
+.base {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* -- NOTES SECTION OVERLAY PANEL -- */
+.notes-section {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 20px;
+  z-index: 1000;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* -- NOTES IMAGE -- */
+.note-image {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* -- NOTES TEXT -- */
+.notes-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  padding-left: 10px;
+}
+
+.notes-text ul {
+  padding-left: 20px;
+}
+
+/* -- TABLE INSIDE NOTES SECTION -- */
+.notes-section table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 13px;
+  overflow-x: auto;
+}
+
+.notes-section th,
+.notes-section td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+}
+
+/* -- BACK BUTTON -- */
+.back-btn {
+  margin-bottom: 20px;
+  background-color: #0057b8;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.back-btn:hover {
+  background-color: #003f8a;
+}
+
+@media screen and (max-width: 450px) {
+  .card {
+    padding: 20px;
+    max-width: 95vw;
+  }
+
+  .selectors {
+    gap: 10px;
+  }
+
+  .field {
+    width: 48%;  /* Still side by side */
+  }
+
+  input {
+    width: 90%;
+  }
+}
+
+html {
+  overflow-x: hidden;
+}
