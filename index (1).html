@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COA Toolkit | Number Converter</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="card">
+
+      <!-- 🟦 NOTES SECTION (Initially Hidden) -->
+      <div id="notesSection" class="notes-section" style="display: none;">
+        <button class="back-btn" onclick="showMain()">Back</button>
+        <b><i>📚 Number Conversion Notes:</i></b>
+        
+        <div class="notes-text">
+          <b>[A=10, B=11, C=12, D=13, E=14, F=15]<br>
+             [Base: Binary = 2(0,1), Octal = 8(0-7), Decimal = 10(0-9), Hexadecimal = 16(0-9,A-F)]
+          </b>
+
+          <ul>
+            <li><strong>Binary → Decimal:</strong> Multiply digits by 2ⁿ, then sum.<br>Ex: 1001 → 1×2³+0×2²+0×2¹+1×2⁰ = 9</li>
+            <li><strong>Binary → Octal:</strong> Group binary in 3 bits from right.<br>Ex: 10101 → <u>010</u> <u>101</u> → 25</li>
+            <li><strong>Binary → Hex:</strong> Group in 4 bits from right.<br>Ex: 110101011 → <u>0001</u> <u>1010</u> <u>1011</u> → 1AB</li>
+            <li><strong>Decimal → Binary:</strong> Divide by 2, reverse remainders.<br>Ex: 13 = 1101</li>
+            
+            <!-- 🟨 Division Table -->
+            <table border="1" cellpadding="8" cellspacing="0" style="width:100%;">
+              <tr><th>Divisor</th><th>Quotient</th><th>Remainder</th></tr>
+              <tr><td>2</td><td>13</td><td>1</td></tr>
+              <tr><td>2</td><td>6</td><td>0</td></tr>
+              <tr><td>2</td><td>3</td><td>1</td></tr>
+              <tr><td>-</td><td>1</td><td>1</td></tr>
+            </table>
+
+            <li><strong>Decimal → Octal:</strong> Divide by 8, reverse remainders.<br>Ex: 78 = 116</li>
+            <li><strong>Decimal → Hex:</strong> Divide by 16, reverse remainders.<br>Ex: 350 = 15E</li>
+            <li><strong>Octal → Binary:</strong> Convert each digit to 3-bit.<br>Ex: 247 → <u>010</u> <u>100</u> <u>111</u> = 10100111</li>
+            <li><strong>Octal → Decimal:</strong> Multiply digits by 8ⁿ, then sum.<br>Ex: 177 = 127</li>
+            <li><strong>Octal → Hex:</strong> Convert to Binary → Hex.<br>Ex: 5456 → 101100101110 = B2E</li>
+            <li><strong>Hex → Binary:</strong> Each hex digit to 4-bit.<br>Ex: ACD2 → <u>1010</u> <u>1100</u> <u>1101</u> <u>0010</u> = 110011010010</li>
+            <li><strong>Hex → Decimal:</strong> Multiply digits by 16ⁿ, sum.<br>Ex: 3A4 = 932</li>
+            <li><strong>Hex → Octal:</strong> Hex → Binary → Octal.<br>Ex: B28 → 101100101000 = 5450</li>
+          </ul>
+
+          <!-- 🟩 Decimal-Binary-Octal-Hex Table -->
+          <table border="1" cellspacing="0" cellpadding="8">
+            <tr><th>Decimal</th><th>Binary</th><th>Octal</th><th>Hexadecimal</th></tr>
+            <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>2</td><td>10</td><td>2</td><td>2</td></tr>
+            <tr><td>3</td><td>11</td><td>3</td><td>3</td></tr>
+            <tr><td>4</td><td>100</td><td>4</td><td>4</td></tr>
+            <tr><td>5</td><td>101</td><td>5</td><td>5</td></tr>
+            <tr><td>6</td><td>110</td><td>6</td><td>6</td></tr>
+            <tr><td>7</td><td>111</td><td>7</td><td>7</td></tr>
+            <tr><td>8</td><td>1000</td><td>10</td><td>8</td></tr>
+            <tr><td>9</td><td>1001</td><td>11</td><td>9</td></tr>
+            <tr><td>10</td><td>1010</td><td>12</td><td>A</td></tr>
+            <tr><td>11</td><td>1011</td><td>13</td><td>B</td></tr>
+            <tr><td>12</td><td>1100</td><td>14</td><td>C</td></tr>
+            <tr><td>13</td><td>1101</td><td>15</td><td>D</td></tr>
+            <tr><td>14</td><td>1110</td><td>16</td><td>E</td></tr>
+            <tr><td>15</td><td>1111</td><td>17</td><td>F</td></tr>
+            <tr><td>16</td><td>10000</td><td>20</td><td>10</td></tr>
+          </table>
+        </div>
+         <b><i>Thank You!!</i></b>
+      </div>
+     
+      <!-- 🟦 HEADER -->
+      <header class="header">
+        <div class="module-name">Computer Fundamentals</div>
+        <button class="notes">Notes</button>
+      </header>
+
+      <!-- 🟨 MAIN CONTENT -->
+      <main class="content">
+        <h1>✨Number Conversion Tool!</h1>
+
+        <div class="selectors">
+          <div class="field">
+            <label for="fromBase">From :</label>
+            <select id="fromBase">
+              <option value="2">Binary</option>
+              <option value="10">Decimal</option>
+              <option value="8">Octal</option>
+              <option value="16">Hexadecimal</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="toBase">To :</label>
+            <select id="toBase">
+              <option value="2">Binary</option>
+              <option value="10">Decimal</option>
+              <option value="8">Octal</option>
+              <option value="16">Hexadecimal</option>
+            </select>
+          </div>
+        </div>
+
+        <input type="text" id="inputNumber" placeholder="Enter number here.." />
+        <button onclick="convertNumber()">Convert</button>
+        <div id="outputNumber" class="output"></div>
+        <footer class="base">@Dhanashree Patil</footer>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- 🟧 SCRIPT LINK -->
+  <script src="script.js"></script>
+</body>
+</html>
